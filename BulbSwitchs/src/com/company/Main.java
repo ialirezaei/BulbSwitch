@@ -1,56 +1,56 @@
-
-package com.company;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Main {
+public class Bulb {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter some numbers.");
 
-        ArrayList<Integer> mylist = new ArrayList<Integer>();
-        ArrayList<Integer> mylist2 = new ArrayList<Integer>();
-        ArrayList<Integer> mylist3 = new ArrayList<Integer>();
+        ArrayList<Integer> input = new ArrayList<Integer>();
+        ArrayList<Integer> equal = new ArrayList<Integer>();
+        ArrayList<Integer> calculus = new ArrayList<Integer>();
 
-        mylist.add(0);
+        input.add(0);
+        input.add(input.lastIndexOf(8));
+
         while (sc.hasNextInt()) {
-            int i = 0;
-            i = sc.nextInt();
-            mylist.add(i);
-            if(mylist.size() == 8){
+            int z = 0;
+            z = sc.nextInt();
+            input.add(z);
+            if(input.size() == 9){
                 break;
             }
-        }
-        if(mylist.indexOf(2)==1){
-            mylist3.add(mylist.indexOf(2));
-        }
-        for (int j=1; j<=mylist.size(); j++){
-            if(j == mylist.indexOf(j)){
-                if(mylist.indexOf(j+1)>mylist.indexOf(j)){
-                    System.out.println(mylist.indexOf(j));
-                    mylist2.add(j);
-                }
-                for (int i=j; i <mylist.size();i++){
-                    if (mylist.indexOf(i) < i){
-                        System.out.println(mylist.indexOf(i));
-                        mylist3.add(mylist.indexOf(i));
-                    }
-                }
-                {
 
+        }
+        if(input.indexOf(1)==1){
+            equal.add(input.indexOf(1));
+        }
+
+
+        for (int j = 1; j <= 7; j++) {
+                if (input.get(j + 1) > input.get(j) && input.get(j) > input.get(j - 1)) {
+                    if (j == input.get(j) && j > input.indexOf(1)) {
+                        equal.add(input.get(j));
                 }
             }
         }
-//        System.out.println(mylist2);
-//        System.out.println(mylist3);
-        int b = mylist2.size()+ mylist3.size();
+        for (int i = 1; i <= 7; i++) {
+            if (input.get(i) < i) {
+                if(input.get(i) < input.get(i+1)){
+                    calculus.add(input.get(i));
+                }
+            }
+
+        }
+
+//        System.out.println(equal);
+//        System.out.println(calculus);
+        int b = equal.size() + calculus.size();
         System.out.println(b);
-
-
     }
 }
+
 
